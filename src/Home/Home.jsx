@@ -14,6 +14,16 @@ export default function Home() {
         console.log(listas)
     }
    
+    const remover  = (id) => {
+        const auxLista = [];
+        listas.map((lista) => {
+            if (lista.id !== id){
+                auxLista.push(lista);
+            }
+        })
+        setListas(auxLista)
+    }
+
     return (
         <div>
             <Link to="/todo">todo</Link>
@@ -26,7 +36,8 @@ export default function Home() {
 
             {listas.map((atv) => 
                 <div key = {atv.identidade}>
-                    <p>{atv.atividades}</p>                            
+                    <p>{atv.atividades}</p> 
+                    <button onClick={() => remover(atv.id)}>Remover</button>                           
                 </div>
             )}
         </div>
