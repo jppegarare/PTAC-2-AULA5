@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Home() {
-    const[atividades, setAtividades] = useState("")
+    const[personagem, setPersongem] = useState("")
+    const[idade, setIdade] = useState("")
+    const[recompensa, setRecompensa] = useState("")
     const[listas, setListas] = useState([])
     const[identidade, setIdentidade] = useState(1)
+
     const salvar = (e) => {
         e.preventDefault()
         setListas([...listas, {
-            atividades:atividades, identidade:identidade
+            personagem:personagem, idade:idade, personagem:personagem, identidade:identidade
         }])
         setIdentidade(identidade + 1)
-        alert("A palavra " + atividades + " foi salva")
         console.log(listas)
     }
    
@@ -30,7 +32,7 @@ export default function Home() {
             <h1>Lista de Atividades</h1>
 
             <form onSubmit={salvar}>
-                <input type="text" onChange={(e) => {setAtividades(e.target.value)}}></input>
+                <input type="text" onChange={(e) => {setPersongem(e.target.value)}}></input>
                 <button>Salvar</button>
             </form>
 
