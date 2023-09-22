@@ -30,7 +30,7 @@ export default function ToDo() {
 
     return (
         <div>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
             <h1>Informe o Foragido </h1>
 
             <form onSubmit={salvar}>
@@ -51,9 +51,9 @@ export default function ToDo() {
 
             {listas.map((atv) => 
                 <div key = {atv.identidade}>
-                    <p>{atv.personagem}</p>
-                    <p>{atv.idade}</p>
-                    <p>{atv.recompensa}</p>
+                    <p>Suejeito: {atv.personagem}</p>
+                    <p>Idade: {atv.idade}</p>
+                    <p>Recompensa: {atv.recompensa}</p>
                     <button onClick={() => remover(atv.identidade)}>Remover</button>                           
                 </div>
             )}
