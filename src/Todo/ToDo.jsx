@@ -4,8 +4,7 @@ import"./style.css"
 
 export default function ToDo() {
     const[personagem, setPersongem] = useState("")
-    const[idade, setIdade] = useState(1)
-    const[id, setId] = useState(1)
+    const[idade, setIdade] = useState()
     const[recompensa, setRecompensa] = useState("")
     const[listas, setListas] = useState([])
     const[identidade, setIdentidade] = useState(1)
@@ -36,26 +35,26 @@ export default function ToDo() {
 
             <form onSubmit={salvar}>
                 <h3>Nome</h3>
-                <input type="text" value={personagem} onChange={(e) => {setPersongem(e.target.value)}}></input>
+                <input class="form" type="text" value={personagem} onChange={(e) => {setPersongem(e.target.value)}}></input>
 
                 <h3>Idade</h3>
-                <input type="number" value={idade} onChange={(e) => {setIdade(e.target.value)}}></input>
+                <input class="form" type="number" value={idade} onChange={(e) => {setIdade(e.target.value)}}></input>
 
                 <h3>Recompensa</h3>
-                <input type="text" value={recompensa} onChange={(e) => {setRecompensa(e.target.value)}}></input>
+                <input class="form" type="text" value={recompensa} onChange={(e) => {setRecompensa(e.target.value)}}></input>
 
                 <br/>
                 <br/>
 
-                <button>Registrar</button>
+                <button class="buttonRegister">Registrar</button>
             </form>
 
             {listas.map((atv) => 
                 <div key = {atv.identidade}>
-                    <p>Suejeito: {atv.personagem}</p>
-                    <p>Idade: {atv.idade}</p>
-                    <p>Recompensa: {atv.recompensa}</p>
-                    <button onClick={() => remover(atv.identidade)}>Remover</button>                           
+                    <p class="info">Suejeito: {atv.personagem}</p>
+                    <p class="info">Idade: {atv.idade}</p>
+                    <p class="info">Recompensa: {atv.recompensa}</p>
+                    <button class="buttonRemove" onClick={() => remover(atv.identidade)}>Remover</button>                           
                 </div>
             )}
         </div>
