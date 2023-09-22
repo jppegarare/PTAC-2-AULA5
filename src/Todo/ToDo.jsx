@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import"./style.css"
 
 export default function ToDo() {
     const[personagem, setPersongem] = useState("")
@@ -29,7 +30,7 @@ export default function ToDo() {
     }
 
     return (
-        <div>
+        <div class="container">
             <Link to="/">Home</Link>
             <h1>Informe o Foragido </h1>
 
