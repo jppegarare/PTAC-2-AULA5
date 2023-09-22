@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function ToDo() {
     const[personagem, setPersongem] = useState("")
     const[idade, setIdade] = useState(1)
+    const[id, setId] = useState(1)
     const[recompensa, setRecompensa] = useState("")
     const[listas, setListas] = useState([])
     const[identidade, setIdentidade] = useState(1)
@@ -11,16 +12,16 @@ export default function ToDo() {
     const salvar = (e) => {
         e.preventDefault()
         setListas([...listas, {
-            personagem:personagem, idade:idade, recompensa:recompensa, identidade:identidade
+            personagem:personagem, idade:idade, recompensa:recompensa, identidade:identidade,
         }])
         setIdentidade(identidade + 1)
         console.log(listas)
     }
    
-    const remover  = (id) => {
+    const remover  = (identidade) => {
         const auxLista = [];
         listas.map((lista) => {
-            if (lista.id !== id){
+            if (lista.identidade !== identidade){
                 auxLista.push(lista);
             }
         })
@@ -34,18 +35,18 @@ export default function ToDo() {
 
             <form onSubmit={salvar}>
                 <h3>Nome</h3>
-                <input type="text" onChange={(e) => {setPersongem(e.target.value)}}></input>
+                <input type="text" value={personagem} onChange={(e) => {setPersongem(e.target.value)}}></input>
 
                 <h3>Idade</h3>
-                <input type="number" onChange={(e) => {setIdade(e.target.value)}}></input>
+                <input type="number" value={idade} onChange={(e) => {setIdade(e.target.value)}}></input>
 
                 <h3>Recompensa</h3>
-                <input type="text" onChange={(e) => {setRecompensa(e.target.value)}}></input>
+                <input type="text" value={recompensa} onChange={(e) => {setRecompensa(e.target.value)}}></input>
 
                 <br/>
                 <br/>
 
-                <button>Salvar</button>
+                <button>Registrar</button>
             </form>
 
             {listas.map((atv) => 
@@ -53,7 +54,7 @@ export default function ToDo() {
                     <p>{atv.personagem}</p>
                     <p>{atv.idade}</p>
                     <p>{atv.recompensa}</p>
-                    <button onClick={() => remover(atv.id)}>Remover</button>                           
+                    <button onClick={() => remover(atv.identidade)}>Remover</button>                           
                 </div>
             )}
         </div>
