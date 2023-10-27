@@ -10,6 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/todo' element={<ToDo />}></Route>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/detalhe/:identidade' element={<Detalhe/>}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

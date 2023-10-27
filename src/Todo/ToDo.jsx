@@ -9,7 +9,7 @@ export default function ToDo() {
     const[recompensa, setRecompensa] = useState("")
     const[local, setLocal] = useState("")
     const[listas, setListas] = useState(listaLocalStorage || [])
-    const[identidade, setIdentidade] = useState(1)
+    const[identidade, setIdentidade] = useState(listaLocalStorage[listaLocalStorage.length - 1]?.identidade + 1 || 1)
 
     useEffect(() => {localStorage.setItem("Lista", JSON.stringify(listas))}, [listas])
 
