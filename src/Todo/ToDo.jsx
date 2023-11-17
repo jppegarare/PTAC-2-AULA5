@@ -58,6 +58,10 @@ export default function ToDo() {
 
             {listas.map((atv) => 
                 <div key = {atv.identidade}>
+                    
+                    <Link to={`/Detalhe/${atv.identidade}`}>
+                        <li>{atv.identidade}</li>
+                    </Link>
                     <p class="info">Sujeito Procurado: {atv.personagem}</p>
                     <p class="info">Idade: {atv.idade}</p>
                     <p class="info">Recompensa: {atv.recompensa}</p>
